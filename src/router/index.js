@@ -140,40 +140,41 @@ export const asyncRoutes = [
       icon: 'excel',
       roles: ['admin', 'editor']
     },
-    children: [
-      {
+    children: [{
         path: 'media',
         component: () => import('@/views/course/media'),
         name: 'Media',
         meta: {
           title: '图文',
         }
-      },
-      {
+      },{
         path: 'audio',
         component: () => import('@/views/course/audio'),
         name: 'Audio',
         meta: {
           title: '音频',
         }
-      },
-      {
+      },{
         path: 'video',
         component: () => import('@/views/course/video'),
         name: 'Video',
         meta: {
           title: '视频',
         }
-      },
-      {
+      },{
         path: 'column',
         component: () => import('@/views/course/column'),
         name: 'Column',
         meta: {
           title: '专栏',
         }
-      },
-    ]
+      },{
+        hidden:true,
+        path:'column_detail',
+        name:'ColumnDetail',
+        component:()=>import ('@/views/course/column_detail'),
+        meta: { title:'专栏详情' }
+    }]
   },
   // {
   //   path: '/permission',
@@ -232,8 +233,7 @@ export const asyncRoutes = [
   {
     path: '/user',
     component: Layout,
-    redirect: '/user/user',
-    name: 'User',
+    redirect: '/user',
     alwaysShow: true,
     meta: {
       title: '用户',
@@ -243,12 +243,12 @@ export const asyncRoutes = [
     children: [
       {
         path: 'user',
-        component: () => import('@/views/user/user'),
-        name: 'Media',
+        component: () => import('@/views/user/index'),
+        name: 'User',
         meta: {
           title: '用户',
         }
-      },
+      }
     ]
   },
   {
